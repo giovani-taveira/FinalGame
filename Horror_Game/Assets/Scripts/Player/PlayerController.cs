@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         player.Rotate(0, rX, 0, Space.World);
         cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.Euler(rY * 2, player.eulerAngles.y, 0), 100 * Time.deltaTime);
         camPivot.position = Vector3.Lerp(camPivot.position, player.position, 10 * Time.deltaTime);
-
     }
 
     private void FixedUpdate()
