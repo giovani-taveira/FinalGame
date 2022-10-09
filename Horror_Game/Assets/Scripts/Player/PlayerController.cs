@@ -21,6 +21,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform camPivot;
     [SerializeField] private Transform cam;
 
+    //AudioSource's dos objetos que terão o som triggado:
+    public AudioSource sourceStick;
+    public AudioSource sourceRun;
+    public AudioSource sourceCan;
+
+    public ChaseController chaseScript;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,5 +52,29 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + dir * force * Time.fixedDeltaTime);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("StickAudio"))
+        {
+            chaseScript.soundTriggered = true;
+            sourceStick.Play();
+            StartCoroutine(WaitAudio(sourceStick));
+            chaseScript.soundTriggered = false;
+        }
+        else if (other.gameObject.CompareTag("CanAudio"))
+        {
+            chaseScript.soundTriggered = true;
+            sourceCan.Play();
+            StartCoroutine(WaitAudio(sourceCan));
+        }
+    }
+
+    public IEnumerator WaitAudio(AudioSource source)
+    {
+        yield return new WaitForSeconds(source.clip.length);
+        Debug.Log("Audio has finished!");
+        chaseScript.soundTriggered = false;
     }
 }
