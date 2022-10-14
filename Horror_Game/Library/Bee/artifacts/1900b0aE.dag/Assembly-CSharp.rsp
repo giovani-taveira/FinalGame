@@ -359,6 +359,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Camera/CameraController.cs"
+"Assets/Scripts/Misc/FlashLigth.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/SoundMonster/ChaseController.cs"
 -langversion:9.0
