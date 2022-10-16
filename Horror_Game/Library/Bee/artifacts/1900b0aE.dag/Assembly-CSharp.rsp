@@ -362,6 +362,7 @@
 "Assets/Scripts/Misc/FlashLigth.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/SoundMonster/ChaseController.cs"
+"Assets/Scripts/SpiderMonster/SpiderController.cs"
 -langversion:9.0
 
 /deterministic

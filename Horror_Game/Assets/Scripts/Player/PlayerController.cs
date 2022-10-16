@@ -56,25 +56,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("StickAudio"))
+        if (other.gameObject.CompareTag("CanAudio"))
         {
-            chaseScript.soundTriggered = true;
-            sourceStick.Play();
-            StartCoroutine(WaitAudio(sourceStick));
-            chaseScript.soundTriggered = false;
-        }
-        else if (other.gameObject.CompareTag("CanAudio"))
-        {
-            chaseScript.soundTriggered = true;
             sourceCan.Play();
-            StartCoroutine(WaitAudio(sourceCan));
+            //StartCoroutine(WaitAudio(sourceCan));
+            chaseScript.soundWalkPoint = other.transform.position;
+            chaseScript.soundTriggered = true;
         }
     }
 
-    public IEnumerator WaitAudio(AudioSource source)
-    {
-        yield return new WaitForSeconds(source.clip.length);
-        Debug.Log("Audio has finished!");
-        chaseScript.soundTriggered = false;
-    }
+    //public IEnumerator WaitAudio(AudioSource source)
+    //{
+    //    yield return new WaitForSeconds(source.clip.length);
+    //    Debug.Log("Audio has finished!");
+    //    chaseScript.soundTriggered = false;
+    //}
 }

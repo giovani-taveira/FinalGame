@@ -8,9 +8,11 @@ public class ChaseController : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+    private float remainingDistance = 0;
 
     //Patrulha:
     public Vector3 walkPoint;
+    public Vector3 soundWalkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
@@ -32,8 +34,10 @@ public class ChaseController : MonoBehaviour
 
         if (!playerInSightRange && !soundTriggered)
             Patrolling();
-        else if (playerInSightRange || soundTriggered)
+        else if (playerInSightRange)
             ChasePlayer();
+        else if (soundTriggered)
+            ChaseSoundPoint();
     }
 
     public void Patrolling()
@@ -64,5 +68,14 @@ public class ChaseController : MonoBehaviour
     public void ChasePlayer()
     {
         agent.SetDestination(player.position);
+    }
+
+    public void ChaseSoundPoint()
+    {
+        agent.SetDestination(soundWalkPoint);
+
+        remainingDistance = agent.remainingDistance;
+        if (remainingDistance != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
+            soundTriggered = false;
     }
 }
