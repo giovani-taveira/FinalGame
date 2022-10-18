@@ -1,0 +1,158 @@
+ScriptsOnlyBuild:
+  usedScripts:
+    Assembly-CSharp.dll:
+    - CameraController
+    - ChaseController
+    - FlashLigth
+    - PlayerController
+    - SpiderController
+    NavMeshComponents.dll:
+    - UnityEngine.AI.NavMeshLink
+    - UnityEngine.AI.NavMeshSurface
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
+  serializedClasses: {}
+  methodsToPreserve: []
+  sceneClasses:
+    Assets/Scenes/Scene-01.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 2558}
+    - Class: 114
+      Script: {instanceID: 3876}
+    - Class: 114
+      Script: {instanceID: 4956}
+    - Class: 114
+      Script: {instanceID: 5320}
+    - Class: 114
+      Script: {instanceID: 5486}
+    - Class: 114
+      Script: {instanceID: 8156}
+    - Class: 114
+      Script: {instanceID: 8368}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 238
+      Script: {instanceID: 0}
+  scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlashLigth
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: 3a09ae0a4d0e75b36abda223b76ab1ea
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshLink
+  - hash:
+      serializedVersion: 2
+      Hash: 15146d050d6483434f5274d48058398e
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
+  - hash:
+      serializedVersion: 2
+      Hash: 1be3a7c1e689cdabbb64dc68aea78873
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpiderController
+  - hash:
+      serializedVersion: 2
+      Hash: 30272fb64f8cce006c73a9edd9512419
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
+  - hash:
+      serializedVersion: 2
+      Hash: 95c949a15ffd93dcd8e49f84e935accf
+    assemblyName: NavMeshComponents.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
+      Hash: 22753295587e3a7ae1f7dfaf202d4ccc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FieldOfView
+  - hash:
+      serializedVersion: 2
+      Hash: 4f4f470f40226701d646d43a67fc5d95
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LookMonsterMove
+  - hash:
+      serializedVersion: 2
+      Hash: 89fff49201ac8d4b2842b055240cd4cb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChaseController
+  - hash:
+      serializedVersion: 2
+      Hash: 3753126d163e981deb06bfc6c172ff92
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerController
+  platform: 19
+  scenePathNames:
+  - Assets/Scenes/Scene-01.unity
+  playerPath: C:/Users/Luis/Desktop/Horror_Game.exe
