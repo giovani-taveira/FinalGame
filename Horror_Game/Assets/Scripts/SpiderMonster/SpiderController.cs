@@ -8,6 +8,7 @@ public class SpiderController : MonoBehaviour
     [SerializeField] float velocityToIncrease;
     UnityEngine.AI.NavMeshAgent agent;
 
+    float timeToStart = 1;
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -15,9 +16,15 @@ public class SpiderController : MonoBehaviour
 
     void Update()
     {
-        agent.SetDestination(playerTransform.position);
+        timeToStart += timeToStart * Time.deltaTime * 0.1f;
+        Debug.Log("Time: " + timeToStart);
 
-        if (agent.speed < 12)
-            agent.speed += velocityToIncrease * Time.deltaTime;
+        if (timeToStart >= 50f)
+        {
+            agent.SetDestination(playerTransform.position);
+
+            if (agent.speed < 12)
+                agent.speed += velocityToIncrease * Time.deltaTime;
+        }
     }
 }

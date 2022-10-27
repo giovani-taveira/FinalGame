@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -28,17 +29,40 @@ public class PlayerController : MonoBehaviour
 
     public ChaseController chaseScript;
 
+    //Pistas:
+    [SerializeField] Clues clue1;
+    [SerializeField] Clues clue2;
+    [SerializeField] Clues clue3;
+    [SerializeField] Clues clue4;
+
+    private bool clue1Bool;
+    private bool clue2Bool;
+    private bool clue3Bool;
+    private bool clue4Bool;
+
+    [SerializeField] GameObject paper;
+    [SerializeField] TextMeshProUGUI clueText;
+
+    private bool clueTag;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        clueTag = false;
+        clue1Bool = false;
+        clue2Bool = false;
+        clue3Bool = false;
+        clue4Bool = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (paper.gameObject.activeInHierarchy)
+            paper.SetActive(false);
     }
 
     void Update()
     {
-
         dir = player.TransformVector(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized);
 
         rX = Mathf.Lerp(rX, Input.GetAxisRaw("Mouse X") * 2, 100 * Time.deltaTime);
@@ -47,6 +71,31 @@ public class PlayerController : MonoBehaviour
         player.Rotate(0, rX, 0, Space.World);
         cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.Euler(rY * 2, player.eulerAngles.y, 0), 100 * Time.deltaTime);
         camPivot.position = Vector3.Lerp(camPivot.position, player.position, 10 * Time.deltaTime);
+
+        if (clueTag)
+        {
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.T))
+            {
+                if (!paper.gameObject.activeInHierarchy)
+                {
+                    paper.SetActive(true);
+
+                    if (clue1Bool)
+                        clueText.text = clue1.Text;
+                    else if (clue2Bool)
+                        clueText.text = clue2.Text;
+                    else if (clue3Bool)
+                        clueText.text = clue3.Text;
+                    else if (clue4Bool)
+                        clueText.text = clue4.Text;
+                }
+                else
+                {
+                    paper.SetActive(false);
+                    clueText.text = string.Empty;
+                }
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -63,12 +112,42 @@ public class PlayerController : MonoBehaviour
             chaseScript.soundWalkPoint = other.transform.position;
             chaseScript.soundTriggered = true;
         }
+
+        if (other.gameObject.CompareTag("Clue"))
+        {
+            clueTag = true;
+
+            switch (other.gameObject.name)
+            {
+                case "Pista1":
+                    clue1Bool = true;
+                    break;
+
+                case "Pista2":
+                    clue2Bool = true;
+                    break;
+
+                case "Pista3":
+                    clue3Bool = true;
+                    break;
+
+                case "Pista4":
+                    clue4Bool = true;
+                    break;
+            }
+        }
     }
 
-    //public IEnumerator WaitAudio(AudioSource source)
-    //{
-    //    yield return new WaitForSeconds(source.clip.length);
-    //    Debug.Log("Audio has finished!");
-    //    chaseScript.soundTriggered = false;
-    //}
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Clue"))
+        {
+            clueTag = false;
+
+            clue1Bool = false;
+            clue2Bool = false;
+            clue3Bool = false;
+            clue4Bool = false;
+        }
+    }
 }

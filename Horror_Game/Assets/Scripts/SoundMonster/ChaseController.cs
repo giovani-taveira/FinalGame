@@ -76,6 +76,10 @@ public class ChaseController : MonoBehaviour
 
         remainingDistance = agent.remainingDistance;
         if (remainingDistance != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
+        {
             soundTriggered = false;
+            SearchWalkPoint();
+        }
+
     }
 }
