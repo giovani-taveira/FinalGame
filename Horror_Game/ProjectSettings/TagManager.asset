@@ -15,6 +15,9 @@ TagManager:
   - Obstacle
   - 
   - 
+  - WhatIsEnemy
+  - WhatIsGround
+  - WhatIsPlayer
   - 
   - 
   - 
