@@ -17,19 +17,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
-        {
             camAnim.SetTrigger("Walk");
-
-            //if (Input.GetKey("f"))
-            //    walkAnim.clip.frameRate = 120;
-            //else
-            //    walkAnim.clip.frameRate = 60;
-
-            //Debug.Log(walkAnim.clip.frameRate);
-        }
         else
-        {
             camAnim.SetTrigger("Idle");
-        }
     }
 }
