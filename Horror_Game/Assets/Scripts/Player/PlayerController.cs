@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
         if (clueTag)
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!paper.gameObject.activeInHierarchy)
                 {
