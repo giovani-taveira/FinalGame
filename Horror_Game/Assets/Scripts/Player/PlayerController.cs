@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource sourceStick;
     public AudioSource sourceRun;
     public AudioSource sourceCan;
+    public AudioSource sourceWalk;
 
     public ChaseController chaseScript;
 
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
         if (paper.gameObject.activeInHierarchy)
             paper.SetActive(false);
+
+        sourceWalk.enabled = false;
     }
 
     void Update()
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
         if (clueTag)
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (!paper.gameObject.activeInHierarchy)
                 {
@@ -96,6 +99,18 @@ public class PlayerController : MonoBehaviour
                     clueText.text = string.Empty;
                 }
             }
+        }
+
+        if (Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.W) ||
+            Input.GetKey(KeyCode.S) ||
+            Input.GetKey(KeyCode.D))
+        {
+            sourceWalk.enabled = true;
+        }
+        else
+        {
+            sourceWalk.enabled = false;
         }
     }
 

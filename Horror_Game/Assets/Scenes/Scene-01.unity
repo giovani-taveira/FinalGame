@@ -1398,6 +1398,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194228}
     - target: {fileID: 3551808090990192952, guid: 5b11643f6a11bdb41adadb2c8aed364d, type: 3}
+      propertyPath: paper
+      value: 
+      objectReference: {fileID: 970693823}
+    - target: {fileID: 3551808090990192952, guid: 5b11643f6a11bdb41adadb2c8aed364d, type: 3}
       propertyPath: camPivot
       value: 
       objectReference: {fileID: 1127283467}
