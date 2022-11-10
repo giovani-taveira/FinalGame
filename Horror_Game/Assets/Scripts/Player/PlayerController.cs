@@ -127,12 +127,12 @@ public class PlayerController : MonoBehaviour
         dir = player.TransformVector(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized);
 
         if(Input.GetKey(KeyCode.LeftShift) && stamina > 0){
-            force = 12f; 
+            force = 10f; 
             stamina -= 0.5f;
             //stamninaBar.enabled = true;
 
         }else{
-            force = 6f;
+            force = 5f;
             if(stamina < 100.0f && !Input.GetKey(KeyCode.LeftShift)) stamina += 0.5f;
         }
 
