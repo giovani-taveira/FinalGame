@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     public AudioSource sourceRun;
     public AudioSource sourceCan;
     public AudioSource sourceWalk;
+    public AudioSource sourceSoundMonster;
+    
+    public AudioSource sourcePlayerForest;
+    public AudioSource sourcePlayerHouse;
+    public AudioSource sourcePlayerMines;
 
     public ChaseController chaseScript;
 
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI clueText;
 
     private bool clueTag;
+    private bool firstTimeSoundGrowl;
 
     void Start()
     {
@@ -66,6 +72,7 @@ public class PlayerController : MonoBehaviour
             paper.SetActive(false);
 
         sourceWalk.enabled = false;
+        firstTimeSoundGrowl = false;
     }
 
     void Update()
@@ -146,13 +153,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        // if (other.gameObject.CompareTag("CanAudio"))
-        // {
-        //     sourceCan.Play();
-        //     //StartCoroutine(WaitAudio(sourceCan));
-        //     chaseScript.soundWalkPoint = other.transform.position;
-        //     chaseScript.soundTriggered = true;
-        // }
+        if (other.gameObject.CompareTag("CanAudio"))
+        {
+            sourceCan.Play();
+            StartCoroutine(WaitAudioForest(sourceCan));
+            chaseScript.soundWalkPoint = other.transform.position;
+            chaseScript.soundTriggered = true;
+        }
 
         if (other.gameObject.CompareTag("Clue"))
         {
@@ -190,5 +197,18 @@ public class PlayerController : MonoBehaviour
             clue3Bool = false;
             clue4Bool = false;
         }
+    }
+
+    public IEnumerator WaitAudioForest(AudioSource sourceCan)
+    {
+        yield return new WaitForSeconds(sourceCan.clip.length);
+        sourceSoundMonster.Play();
+        if (!firstTimeSoundGrowl)
+        {
+            firstTimeSoundGrowl = true;
+            yield return new WaitForSeconds(2f);
+            sourcePlayerForest.Play();
+        }
+            
     }
 }
