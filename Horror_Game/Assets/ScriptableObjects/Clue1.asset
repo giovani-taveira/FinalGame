@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
   m_Name: Clue1
   m_EditorClassIdentifier: 
-  text: "Teste de pista 1...\n\nEscuro...ainda mais escuro...\nH\xE1 algo de estranho
-    nessa casa. \nEu sinto...uma presen\xE7a estranha...\nComo se algu\xE9m estivesse
+  text: "Teste de pista 1...\nEscuro...ainda mais escuro...\nH\xE1 algo de estranho
+    nesse lugar. \nEu sinto...uma presen\xE7a estranha...\nComo se algu\xE9m estivesse
     me observando..."

@@ -36,7 +36,7 @@ public class ChaseController : MonoBehaviour
             Patrolling();
         else if (playerInSightRange)
             ChasePlayer();
-        else if (soundTriggered)
+        else if (soundTriggered || player.GetComponent<PlayerController>().isRunning)
             ChaseSoundPoint();
     }
 

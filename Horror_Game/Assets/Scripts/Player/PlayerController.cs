@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource sourcePlayerForest;
     public AudioSource sourcePlayerHouse;
     public AudioSource sourcePlayerMines;
+    public AudioSource sourcePaper;
 
     public ChaseController chaseScript;
 
@@ -54,6 +55,13 @@ public class PlayerController : MonoBehaviour
 
     private bool clueTag;
     private bool firstTimeSoundGrowl;
+    private bool cantMove = false;
+    public bool isRunning = false;
+    private bool startedRunning = false;
+
+    public Animator textForest;
+
+    public bool inForest; 
 
     void Start()
     {
@@ -73,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
         sourceWalk.enabled = false;
         firstTimeSoundGrowl = false;
+        inForest = true;
     }
 
     void Update()
@@ -90,6 +99,8 @@ public class PlayerController : MonoBehaviour
                 if (!paper.gameObject.activeInHierarchy)
                 {
                     paper.SetActive(true);
+                    cantMove = true;
+                    sourcePaper.Play();
 
                     if (clue1Bool)
                         clueText.text = clue1.Text;
@@ -104,20 +115,25 @@ public class PlayerController : MonoBehaviour
                 {
                     paper.SetActive(false);
                     clueText.text = string.Empty;
+                    cantMove = false;
+                    sourcePaper.Play();
                 }
             }
         }
 
-        if (Input.GetKey(KeyCode.A) ||
-            Input.GetKey(KeyCode.W) ||
-            Input.GetKey(KeyCode.S) ||
-            Input.GetKey(KeyCode.D))
+        if (!cantMove)
         {
-            sourceWalk.enabled = true;
-        }
-        else
-        {
-            sourceWalk.enabled = false;
+            if (Input.GetKey(KeyCode.A) ||
+                Input.GetKey(KeyCode.W) ||
+                Input.GetKey(KeyCode.S) ||
+                Input.GetKey(KeyCode.D))
+            {
+                sourceWalk.enabled = true;
+            }
+            else
+            {
+                sourceWalk.enabled = false;
+            }
         }
     }
 
@@ -128,27 +144,49 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        stamninaBar.fillAmount = stamina / 100;
-        Debug.Log(stamninaBar.fillAmount);
+        if (!cantMove)
+        {
+            stamninaBar.fillAmount = stamina / 100;
 
-        dir = player.TransformVector(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized);
+            dir = player.TransformVector(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized);
 
-        if(Input.GetKey(KeyCode.LeftShift) && stamina > 0){
-            force = 10f; 
-            stamina -= 0.5f;
-            //stamninaBar.enabled = true;
+            if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
+            {
+                force = 10f;
+                stamina -= 0.5f;
+                //stamninaBar.enabled = true;
+                isRunning = true;
+                if (sourceWalk.pitch == 1f)
+                    sourceWalk.pitch = 2f;
 
-        }else{
-            force = 5f;
-            if(stamina < 100.0f && !Input.GetKey(KeyCode.LeftShift)) stamina += 0.5f;
+                if (!startedRunning && inForest)
+                {
+                    chaseScript.soundWalkPoint = this.transform.position;
+                    chaseScript.soundTriggered = true;
+                    startedRunning = true;
+                    StartCoroutine(WaitAudioForest(sourceWalk));
+                }
+
+            }
+            else
+            {
+                force = 5f;
+                if (stamina < 100.0f && !Input.GetKey(KeyCode.LeftShift)) stamina += 0.5f;
+                isRunning = false;
+                if (sourceWalk.pitch == 2f)
+                    sourceWalk.pitch = 1f;
+
+                if (startedRunning)
+                    startedRunning = false;
+            }
+
+            rX = Mathf.Lerp(rX, Input.GetAxisRaw("Mouse X") * 2, 100 * Time.deltaTime);
+            rY = Mathf.Clamp((rY - Input.GetAxisRaw("Mouse Y") * 2 * 100 * Time.deltaTime), -15, 15);
+
+            player.Rotate(0, rX, 0, Space.World);
+            cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.Euler(rY * 2, player.eulerAngles.y, 0), 100 * Time.deltaTime);
+            camPivot.position = Vector3.Lerp(camPivot.position, player.position, 10 * Time.deltaTime);
         }
-
-        rX = Mathf.Lerp(rX, Input.GetAxisRaw("Mouse X") * 2, 100 * Time.deltaTime);
-        rY = Mathf.Clamp((rY - Input.GetAxisRaw("Mouse Y") * 2 * 100 * Time.deltaTime), -15, 15);
-
-        player.Rotate(0, rX, 0, Space.World);
-        cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.Euler(rY * 2, player.eulerAngles.y, 0), 100 * Time.deltaTime);
-        camPivot.position = Vector3.Lerp(camPivot.position, player.position, 10 * Time.deltaTime);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -184,6 +222,14 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+
+        if (other.gameObject.CompareTag("House"))
+        {
+            chaseScript.soundTriggered = false;
+            startedRunning = false;
+            inForest = false;
+            Debug.Log("Entrou na casa");
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -197,18 +243,32 @@ public class PlayerController : MonoBehaviour
             clue3Bool = false;
             clue4Bool = false;
         }
+
+        if (other.gameObject.CompareTag("House"))
+        {
+            inForest = true;
+            Debug.Log("Saiu da casa");
+        }       
+            
     }
 
-    public IEnumerator WaitAudioForest(AudioSource sourceCan)
+    public IEnumerator WaitAudioForest(AudioSource source)
     {
-        yield return new WaitForSeconds(sourceCan.clip.length);
+        yield return new WaitForSeconds(source.clip.length);
         sourceSoundMonster.Play();
         if (!firstTimeSoundGrowl)
         {
             firstTimeSoundGrowl = true;
             yield return new WaitForSeconds(2f);
             sourcePlayerForest.Play();
+            textForest.Play("PlayerForestTextIn");
+            StartCoroutine(WaitUntilEndOfSentence(sourcePlayerForest));
         }
-            
+    }
+
+    public IEnumerator WaitUntilEndOfSentence(AudioSource audioSource)
+    {
+        yield return new WaitForSeconds(audioSource.clip.length);
+        textForest.Play("PlayerForestTextOut");
     }
 }
