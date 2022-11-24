@@ -61,7 +61,9 @@ public class PlayerController : MonoBehaviour
 
     public Animator textForest;
 
-    public bool inForest; 
+    public bool inForest;
+
+    public LookMonsterMove lookMonsterMoveScript;
 
     void Start()
     {
@@ -228,6 +230,7 @@ public class PlayerController : MonoBehaviour
             chaseScript.soundTriggered = false;
             startedRunning = false;
             inForest = false;
+            lookMonsterMoveScript.onTheHouse = true;
             Debug.Log("Entrou na casa");
         }
     }
@@ -246,6 +249,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("House"))
         {
+            lookMonsterMoveScript.onTheHouse = false;
             inForest = true;
             Debug.Log("Saiu da casa");
         }       
@@ -262,11 +266,11 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(2f);
             sourcePlayerForest.Play();
             textForest.Play("PlayerForestTextIn");
-            StartCoroutine(WaitUntilEndOfSentence(sourcePlayerForest));
+            StartCoroutine(WaitUntilEndOfSentenceForest(sourcePlayerForest));
         }
     }
 
-    public IEnumerator WaitUntilEndOfSentence(AudioSource audioSource)
+    public IEnumerator WaitUntilEndOfSentenceForest(AudioSource audioSource)
     {
         yield return new WaitForSeconds(audioSource.clip.length);
         textForest.Play("PlayerForestTextOut");

@@ -410,6 +410,7 @@
 "Assets/Scripts/Misc/Clues.cs"
 "Assets/Scripts/Misc/FlashLigth.cs"
 "Assets/Scripts/Player/FieldOfView.cs"
+"Assets/Scripts/Player/LookMonsterSentence.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Scenary/Door.cs"
 "Assets/Scripts/SoundMonster/ChaseController.cs"

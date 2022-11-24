@@ -14,6 +14,9 @@ public class LookMonsterMove : MonoBehaviour
   Renderer rend { get { return GetComponent<Renderer>(); } set { rend = value; } }
   public Light lanterna;
   private Animator anim;
+
+  public LookMonsterSentence lookMonsterEnablerScript;
+  public bool onTheHouse = false;
   void Start()
   {
       player = GameObject.FindWithTag("Player").transform;
@@ -25,13 +28,16 @@ public class LookMonsterMove : MonoBehaviour
 
   void Update()
   {
-    agent.SetDestination(player.transform.position);
-    agent.isStopped = false;
-
-    if(Vector3.Distance(transform.position,player.position) < enemyDistance)
+    if (lookMonsterEnablerScript.firstTimeLookMonster && onTheHouse)
     {
-      agent.velocity = Vector3.zero;
-      anim.enabled = false;
+        agent.SetDestination(player.transform.position);
+        agent.isStopped = false;
+
+        if (Vector3.Distance(transform.position, player.position) < enemyDistance)
+        {
+            agent.velocity = Vector3.zero;
+            anim.enabled = false;
+        }
     }  
   }
 
