@@ -17,7 +17,7 @@ public class LookMonsterSentence : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("LookMonster") && !firstTimeLookMonster)
+w        if (other.gameObject.CompareTag("LookMonster") && !firstTimeLookMonster)
             StartCoroutine(WaitAudioHouse(sourcePlayerHouse));
     }
 
