@@ -12,4 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
   m_Name: Clue4
   m_EditorClassIdentifier: 
-  text: 4444444 44444444444444     444444444
+  text: "12 de mar\xE7o, de 1920 \u200B\r\n\r\nCaro di\xE1rio, venho aqui escrever
+    sobre minhas conquistas, por\xE9m nenhuma chegar\xE1 aos p\xE9s do que estou
+    prestes a fazer.  \u200B\r\n\r\nRecentemente comprei um terreno na floresta perto
+    da cidade, fiquei sabendo atrav\xE9s do padre que o antigo dono estava com alguns
+    projetos para abrir uma mina, mas ele havia desistido por falta de verba, ent\xE3o
+    sem perder tempo algum, me vi obrigado a comprar esse terreno e ir atr\xE1s de
+    realizar esse projeto, pois sei que h\xE1 algo de especial ali, algo de l\xE1
+    me atrai, e sinto que \xE9 esse o sinal que precisava para crer de que h\xE1
+    sim min\xE9rios raros por l\xE1. \u200B\r\n\r\nEspero conseguir concluir minhas
+    mudan\xE7as em menos de uma semana, para come\xE7ar logo essa minera\xE7\xE3o.
+    \u200B"
+  image: {fileID: 21300000, guid: 455580ac7b82c6842ac5a4d8950c6cfb, type: 3}

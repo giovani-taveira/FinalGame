@@ -12,6 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
   m_Name: Clue1
   m_EditorClassIdentifier: 
-  text: "Teste de pista 1...\nEscuro...ainda mais escuro...\nH\xE1 algo de estranho
-    nesse lugar. \nEu sinto...uma presen\xE7a estranha...\nComo se algu\xE9m estivesse
-    me observando..."
+  text: "24 de outubro, de 1980 \u200B\r\n\r\nHoje venho em meu novo di\xE1rio, relatar
+    minha explora\xE7\xE3o na floresta perto da cidade.  \u200B\r\n\r\nPrimeiramente
+    planejo organizar uma lista com os itens que irei levar para l\xE1, pois ser\xE1
+    uma explora\xE7\xE3o longa, onde al\xE9m da floresta que parece conter algum
+    tipo de criatura, planejo tentar encontrar a cabana misteriosa na floresta, n\xE3o
+    \xE9 poss\xEDvel que seja apenas uma casa abandonada, deve ter algo por l\xE1,
+    principalmente por causa daquela floresta, todos que j\xE1 foram passear por
+    l\xE1 desapareceram e nunca mais deram algum sinal, eu preciso descobrir o que
+    houve por l\xE1. \u200B\r\n\r\nJuntando as informa\xE7\xF5es que consegui, aparenta
+    ser um tipo de criatura como um urso ou um le\xE3o das montanhas que vive por
+    l\xE1, guardando aquela floresta. Ent\xE3o para conseguir comprovar isso levarei
+    algumas ferramentas e instrumentos. \u200B\r\n\r\n \u200B\rLista - \u200B\r\n-
+    Lanterna (caso eu precise tirar uma foto dele no escuro) \u200B\r\n- C\xE2mera
+    (preciso fotografar aquela criatura para comprovar minha hip\xF3tese) \u200B\r\n-
+    Comida e \xE1gua \u200B\r\r\n- Barraca de acampamento \u200B\r\r\n- Isqueiro
+    \u200B\r\n\nJ\xE1 coletei todos os itens necess\xE1rios, e deixei preparada uma
+    carta para minha m\xE3e, irei esperar ela dormir e irei para l\xE1 logo de manh\xE3.
+    \u200B"
+  image: {fileID: 21300000, guid: 935ee0a2abb74c0458a2ecad06420fb5, type: 3}

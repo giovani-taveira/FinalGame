@@ -10,8 +10,17 @@ public class Clues : ScriptableObject
     [TextArea(1, 7)]
     private string text;
 
+    [SerializeField]
+    private Sprite image;
+
+
     public string Text
     {
         get { return text; }
+    }
+
+    public Sprite Image
+    {
+        get { return image; }
     }
 }

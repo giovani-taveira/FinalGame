@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
+  m_Name: Clue7
+  m_EditorClassIdentifier: 
+  text: "27 de julho, de 1920 \u200B\r\n\r\nAgrade\xE7o a Deus por eu ter guardado
+    esses peda\xE7os de papeis em meus bolsos justamente neste maldito dia.  \u200B\r\n\r\nMe
+    chamo Teodoro da Silva Leite, sou um garimpeiro que sofreu um acidente junto
+    de alguns colegas. Est\xE1vamos trabalhando quando der repente houve um tremor
+    e ca\xEDmos em uma \xE1rea que n\xE3o conhec\xEDamos da caverna que est\xE1vamos.
+    \u200B\r\n\r\nO pior de tudo \xE9 que at\xE9 agora n\xE3o conseguimos sinal de
+    fora, como se n\xE3o soubessem que estamos aqui ainda. Esse local que estamos
+    parece ser habitado por alguma criatura grande, quase como se fosse uma aranha,
+    mas n\xE3o conseguimos acreditar que exista um animal deste tamanho. \u200B\r\n\r\nPrecisamos
+    logo de ajuda pois temos um ferido entre n\xF3s que est\xE1 muito machucado e
+    com dificuldade de andar."
+  image: {fileID: 21300000, guid: be4c67a9894a27c449a70855de8e9da0, type: 3}

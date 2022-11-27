@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
+  m_Name: Clue8
+  m_EditorClassIdentifier: 
+  text: "2X de julho, de 1920 \u200B\r\n\r\nVenho aqui novamente escrever para relatar
+    algo que vimos, algo que n\xE3o pode ser explicado perante a vontade de Deus.
+    \u200B\r\n\r\nAparentemente aqui realmente reside uma aranha gigante, algo que
+    n\xE3o conseguimos compreender como pode ser poss\xEDvel. \u200B\r\n\r\nEst\xE1vamos
+    tentando achar outra forma de sair daqui, quando der repente nos deparamos com
+    essa criatura estranha, com um formato meio humano meio aracn\xEDdeo, e enquanto
+    fug\xEDamos, Gabriel Fernandez nosso amigo ferido se prendeu em uma das teias
+    daquela criatura, ficando mais lento do que j\xE1 estava, o pobre coitado n\xE3o
+    teve um bom final. Nesta carta venho deixar minhas despedidas e alerta para caso
+    algu\xE9m de alguma forma adentre esse lugar, FUJA O MAIS RAPIDO POSSIVEL, sabemos
+    que h\xE1 outra sa\xEDda, mas j\xE1 n\xE3o temos mais for\xE7a e nem energia
+    para sair daqui. \u200B"
+  image: {fileID: 21300000, guid: 9199738c4a27a5b4cb0190e0161f001e, type: 3}

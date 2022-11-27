@@ -29,7 +29,9 @@ public class PlayerController : MonoBehaviour
     public AudioSource sourceStick;
     public AudioSource sourceRun;
     public AudioSource sourceCan;
-    public AudioSource sourceWalk;
+    public AudioSource sourceWalkForest;
+    public AudioSource sourceWalkHouse;
+    public AudioSource sourceWalkMines;
     public AudioSource sourceSoundMonster;
     
     public AudioSource sourcePlayerForest;
@@ -44,14 +46,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Clues clue2;
     [SerializeField] Clues clue3;
     [SerializeField] Clues clue4;
+    [SerializeField] Clues clue5;
+    [SerializeField] Clues clue6;
+    [SerializeField] Clues clue7;
+    [SerializeField] Clues clue8;
 
     private bool clue1Bool;
     private bool clue2Bool;
     private bool clue3Bool;
     private bool clue4Bool;
+    private bool clue5Bool;
+    private bool clue6Bool;
+    private bool clue7Bool;
+    private bool clue8Bool;
 
     [SerializeField] GameObject paper;
     [SerializeField] TextMeshProUGUI clueText;
+    [SerializeField] Image clueImage;
 
     private bool clueTag;
     private bool firstTimeSoundGrowl;
@@ -64,6 +75,9 @@ public class PlayerController : MonoBehaviour
     public bool inForest;
 
     public LookMonsterMove lookMonsterMoveScript;
+    float fadeSpeed = 0.055f;
+
+    [SerializeField] AudioSource sourceAmbienceForest;
 
     void Start()
     {
@@ -74,6 +88,10 @@ public class PlayerController : MonoBehaviour
         clue2Bool = false;
         clue3Bool = false;
         clue4Bool = false;
+        clue5Bool = false;
+        clue6Bool = false;
+        clue7Bool = false;
+        clue8Bool = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -81,9 +99,12 @@ public class PlayerController : MonoBehaviour
         if (paper.gameObject.activeInHierarchy)
             paper.SetActive(false);
 
-        sourceWalk.enabled = false;
+        sourceWalkForest.enabled = false;
         firstTimeSoundGrowl = false;
         inForest = true;
+
+        sourceWalkHouse.volume = 0;
+        sourceWalkMines.volume = 0;
     }
 
     void Update()
@@ -105,13 +126,46 @@ public class PlayerController : MonoBehaviour
                     sourcePaper.Play();
 
                     if (clue1Bool)
+                    {
                         clueText.text = clue1.Text;
+                        clueImage.sprite = clue1.Image;
+                    }
                     else if (clue2Bool)
+                    {
                         clueText.text = clue2.Text;
+                        clueImage.sprite = clue2.Image;
+                    }
+                        
                     else if (clue3Bool)
+                    {
                         clueText.text = clue3.Text;
+                        clueImage.sprite = clue3.Image;
+                    }
                     else if (clue4Bool)
+                    {
                         clueText.text = clue4.Text;
+                        clueImage.sprite = clue4.Image;
+                    }
+                    else if (clue5Bool)
+                    {
+                        clueText.text = clue5.Text;
+                        clueImage.sprite = clue5.Image;
+                    }
+                    else if (clue6Bool)
+                    {
+                        clueText.text = clue6.Text;
+                        clueImage.sprite = clue6.Image;
+                    }
+                    else if (clue7Bool)
+                    {
+                        clueText.text = clue7.Text;
+                        clueImage.sprite = clue7.Image;
+                    }
+                    else if (clue8Bool)
+                    {
+                        clueText.text = clue8.Text;
+                        clueImage.sprite = clue8.Image;
+                    }
                 }
                 else
                 {
@@ -130,11 +184,15 @@ public class PlayerController : MonoBehaviour
                 Input.GetKey(KeyCode.S) ||
                 Input.GetKey(KeyCode.D))
             {
-                sourceWalk.enabled = true;
+                sourceWalkForest.enabled = true;
+                sourceWalkHouse.enabled = true;
+                sourceWalkMines.enabled = true;
             }
             else
             {
-                sourceWalk.enabled = false;
+                sourceWalkForest.enabled = false;
+                sourceWalkHouse.enabled = false;
+                sourceWalkMines.enabled = false;
             }
         }
     }
@@ -158,25 +216,37 @@ public class PlayerController : MonoBehaviour
                 stamina -= 0.5f;
                 //stamninaBar.enabled = true;
                 isRunning = true;
-                if (sourceWalk.pitch == 1f)
-                    sourceWalk.pitch = 2f;
+                if (sourceWalkForest.pitch == 1f)
+                    sourceWalkForest.pitch = 2f;
+
+                if (sourceWalkHouse.pitch == 1f)
+                    sourceWalkHouse.pitch = 2f;
+
+                if (sourceWalkMines.pitch == 1f)
+                    sourceWalkMines.pitch = 2f;
 
                 if (!startedRunning && inForest)
                 {
                     chaseScript.soundWalkPoint = this.transform.position;
                     chaseScript.soundTriggered = true;
                     startedRunning = true;
-                    StartCoroutine(WaitAudioForest(sourceWalk));
+                    StartCoroutine(WaitAudioForest(sourceWalkForest));
                 }
-
             }
             else
             {
                 force = 5f;
                 if (stamina < 100.0f && !Input.GetKey(KeyCode.LeftShift)) stamina += 0.5f;
+
                 isRunning = false;
-                if (sourceWalk.pitch == 2f)
-                    sourceWalk.pitch = 1f;
+                if (sourceWalkForest.pitch == 2f)
+                    sourceWalkForest.pitch = 1f;
+
+                if (sourceWalkHouse.pitch == 2f)
+                    sourceWalkHouse.pitch = 1f;
+
+                if (sourceWalkMines.pitch == 2f)
+                    sourceWalkMines.pitch = 1f;
 
                 if (startedRunning)
                     startedRunning = false;
@@ -222,15 +292,35 @@ public class PlayerController : MonoBehaviour
                 case "Pista4":
                     clue4Bool = true;
                     break;
+
+                case "Pista5":
+                    clue5Bool = true;
+                    break;
+
+                case "Pista6":
+                    clue6Bool = true;
+                    break;
+
+                case "Pista7":
+                    clue7Bool = true;
+                    break;
+
+                case "Pista8":
+                    clue8Bool = true;
+                    break;
             }
         }
 
         if (other.gameObject.CompareTag("House"))
         {
+            sourceWalkForest.volume = 0;
+            sourceWalkHouse.volume = 0.65f;
+            sourceWalkMines.volume = 0;
             chaseScript.soundTriggered = false;
             startedRunning = false;
             inForest = false;
             lookMonsterMoveScript.onTheHouse = true;
+            StartCoroutine(FadeOut(sourceAmbienceForest));
             Debug.Log("Entrou na casa");
         }
     }
@@ -245,12 +335,20 @@ public class PlayerController : MonoBehaviour
             clue2Bool = false;
             clue3Bool = false;
             clue4Bool = false;
+            clue5Bool = false;
+            clue6Bool = false;
+            clue7Bool = false;
+            clue8Bool = false;
         }
 
         if (other.gameObject.CompareTag("House"))
         {
+            sourceWalkForest.volume = 0.65f;
+            sourceWalkHouse.volume = 0;
+            sourceWalkMines.volume = 0;
             lookMonsterMoveScript.onTheHouse = false;
             inForest = true;
+            StartCoroutine(FadeIn(sourceAmbienceForest));
             Debug.Log("Saiu da casa");
         }       
             
@@ -274,5 +372,23 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(audioSource.clip.length);
         textForest.Play("PlayerForestTextOut");
+    }
+
+    public IEnumerator FadeOut(AudioSource song)
+    {
+        while (song.volume > 0.08f)
+        {
+            song.volume -= fadeSpeed;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public IEnumerator FadeIn(AudioSource song)
+    {
+        while (song.volume < 0.3f)
+        {
+            song.volume += fadeSpeed;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

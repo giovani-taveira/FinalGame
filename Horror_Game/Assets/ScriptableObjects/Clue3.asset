@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
   m_Name: Clue3
   m_EditorClassIdentifier: 
-  text: 33333
+  text: "31 de outubro, de 1980 \u200B\r\n\r\nQuerido di\xE1rio, bom que se trata
+    apenas de uma folha avulsa, venho aqui me despedir e pedir perd\xE3o a minha
+    m\xE3e, n\xE3o consigo entender como pude ser t\xE3o idiota de vir aqui sozinho. 
+    \u200B\r\n\r\nA qualquer um que encontre essa folha, fui trazido at\xE9 aqui
+    pela criatura da floresta, como se eu fosse um presente para o monstro que reside
+    aqui dentro, como se ele fosse um ser importante, algu\xE9m superior a ele. Acredito
+    que tenho somente mais alguns minutos at\xE9 aquela criatura voltar aqui, ent\xE3o
+    caso algu\xE9m se encontre na mesma situa\xE7\xE3o que eu estive, h\xE1 uma sa\xEDda
+    pela frente, basta s\xF3 voc\xEA correr como se n\xE3o houvesse amanh\xE3, pois
+    a criatura saber\xE1 que voc\xEA est\xE1 tentando fugir, eu sei bem pois em uma
+    \xFAltima tentativa de escapar, ela me alcan\xE7ou e me incapacitou de ir embora.
+    Por favor caso voc\xEA fuja, leve esta carta com voc\xEA e entregue a minha m\xE3e
+    Maria Lu\xEDza de Moraes, moradora da cidade ao lado desta floresta. \u200B"
+  image: {fileID: 21300000, guid: 711f7339111770b49bd13cc5b80087a4, type: 3}

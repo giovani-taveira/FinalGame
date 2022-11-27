@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
   m_Name: Clue2
   m_EditorClassIdentifier: 
-  text: 222222222222222222222222
+  text: "26 de outubro, de 1980 \u200B\r\n\r\nCheguei na floresta, j\xE1 armei minha
+    barraca e j\xE1 preparei o mato seco e alguns galhos para fazer minha fogueira.
+    \u200B\r\n\r\nAnota\xE7\xF5es sobre o local: a floresta apresenta ter um ar diferente
+    do da cidade, parece ser um ar mais \xFAmido mas ao mesmo tempo pesado, parece
+    que te prende aqui, como se fosse um clima pr\xF3prio desse lugar. Hoje irei
+    apenas permanecer em minha barraca e amanh\xE3 irei explorar a floresta para
+    achar a cabana. \u200B\r\n\r\nAgora \xE9 algum hor\xE1rio da madrugada, n\xE3o
+    consegui ver exatamente pois alguma coisa se aproximou do meu acampamento, enquanto
+    eu estava na fogueira configurando meu rel\xF3gio despertador, quando ele come\xE7ou
+    a apitar, nesse exato momento ouvi um rugido e corri para me esconder em minha
+    barraca deixando o rel\xF3gio cair, passei um tempo calado escutando a criatura,
+    e parece que ela destruiu meu rel\xF3gio, acredito que a criatura tenha uma audi\xE7\xE3o
+    muito boa, pois assim que ele apitou ela veio imediatamente at\xE9 mim, acho
+    que a criatura possa ser algo al\xE9m de um urso ou le\xE3o, mas n\xE3o consigo
+    crer que exista um animal com essa super audi\xE7\xE3o no mundo. Bom pelo menos
+    j\xE1 sei uma forma de atrai-lo, atrav\xE9s de sons altos. \u200B"
+  image: {fileID: 21300000, guid: 455580ac7b82c6842ac5a4d8950c6cfb, type: 3}

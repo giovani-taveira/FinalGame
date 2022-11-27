@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3bc27154739a94f8bcfe77db67d9bd, type: 3}
+  m_Name: Clue6
+  m_EditorClassIdentifier: 
+  text: "11 de agosto, de 1920, \u200B\r\n\r\nMeu di\xE1rio querido, creio eu que
+    meu fim esteja pr\xF3ximo, ap\xF3s as sensa\xE7\xF5es estranhas que estive tendo
+    nesta casa, de arrepios pelo meu corpo como se algo me assistisse, descobri que
+    realmente estou sendo observado, n\xE3o sei at\xE9 quando a criatura apenas me
+    observar\xE1, mas sei que devo partir ou ent\xE3o serei morto. Tentarei ir embora
+    amanh\xE3 de manh\xE3, pois parece que a criatura \xE9 mais hostil \xE0 noite.
+    Hoje enquanto eu assistia minha televis\xE3o o ser parece ter de alguma forma
+    mexido com a energia de minha casa, como se dessa vez fosse um aviso para eu
+    ir embora daqui, pois ele estaria se aproximando. \u200B"
+  image: {fileID: 21300000, guid: 935ee0a2abb74c0458a2ecad06420fb5, type: 3}
