@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] AudioSource sourceAmbienceForest;
 
+    private bool insideHouse;
+
     void Start()
     {
         stamina = 100;
@@ -105,6 +107,8 @@ public class PlayerController : MonoBehaviour
 
         sourceWalkHouse.volume = 0;
         sourceWalkMines.volume = 0;
+
+        insideHouse = false;
     }
 
     void Update()
@@ -273,6 +277,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Clue"))
         {
+            Debug.Log("Entrou");
             clueTag = true;
 
             switch (other.gameObject.name)
@@ -311,17 +316,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("House"))
+        if (this.gameObject.CompareTag("Player") && other.gameObject.CompareTag("House"))
         {
-            sourceWalkForest.volume = 0;
-            sourceWalkHouse.volume = 0.65f;
-            sourceWalkMines.volume = 0;
-            chaseScript.soundTriggered = false;
-            startedRunning = false;
-            inForest = false;
-            lookMonsterMoveScript.onTheHouse = true;
-            StartCoroutine(FadeOut(sourceAmbienceForest));
-            Debug.Log("Entrou na casa");
+            if (!insideHouse)
+            {
+                sourceWalkForest.volume = 0;
+                sourceWalkHouse.volume = 0.65f;
+                sourceWalkMines.volume = 0;
+                chaseScript.soundTriggered = false;
+                startedRunning = false;
+                inForest = false;
+                lookMonsterMoveScript.onTheHouse = true;
+                StartCoroutine(FadeOut(sourceAmbienceForest));
+                insideHouse = true;
+                Debug.Log("Entrou na casa");
+            }
+            else
+            {
+                sourceWalkForest.volume = 0.65f;
+                sourceWalkHouse.volume = 0;
+                sourceWalkMines.volume = 0;
+                lookMonsterMoveScript.onTheHouse = false;
+                inForest = true;
+                StartCoroutine(FadeIn(sourceAmbienceForest));
+                insideHouse = false;
+                Debug.Log("Saiu da casa");
+            }
         }
     }
 
@@ -329,6 +349,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Clue"))
         {
+            Debug.Log("Setou tudo pra false");
+
             clueTag = false;
 
             clue1Bool = false;
@@ -339,19 +361,7 @@ public class PlayerController : MonoBehaviour
             clue6Bool = false;
             clue7Bool = false;
             clue8Bool = false;
-        }
-
-        if (other.gameObject.CompareTag("House"))
-        {
-            sourceWalkForest.volume = 0.65f;
-            sourceWalkHouse.volume = 0;
-            sourceWalkMines.volume = 0;
-            lookMonsterMoveScript.onTheHouse = false;
-            inForest = true;
-            StartCoroutine(FadeIn(sourceAmbienceForest));
-            Debug.Log("Saiu da casa");
-        }       
-            
+        }          
     }
 
     public IEnumerator WaitAudioForest(AudioSource source)

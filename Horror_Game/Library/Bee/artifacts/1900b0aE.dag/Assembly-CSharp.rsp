@@ -409,6 +409,8 @@
 "Assets/Scripts/Enemies/LookMonsterMove.cs"
 "Assets/Scripts/Misc/Clues.cs"
 "Assets/Scripts/Misc/FlashLigth.cs"
+"Assets/Scripts/Misc/LevelLoaderScript.cs"
+"Assets/Scripts/Misc/PrologueManager.cs"
 "Assets/Scripts/Player/FieldOfView.cs"
 "Assets/Scripts/Player/LookMonsterSentence.cs"
 "Assets/Scripts/Player/PlayerController.cs"
