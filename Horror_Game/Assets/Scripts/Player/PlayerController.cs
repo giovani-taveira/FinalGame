@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource sourceAmbienceForest;
 
     private bool insideHouse;
+    private bool canPressE;
 
     void Start()
     {
@@ -109,6 +110,8 @@ public class PlayerController : MonoBehaviour
         sourceWalkMines.volume = 0;
 
         insideHouse = false;
+
+        canPressE = true;
     }
 
     void Update()
@@ -119,10 +122,12 @@ public class PlayerController : MonoBehaviour
         else
             stamninaBar.enabled = false;
 
-        if (clueTag)
+        if (clueTag && canPressE)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                canPressE = false;
+                rb.constraints = RigidbodyConstraints.FreezePosition;
                 if (!paper.gameObject.activeInHierarchy)
                 {
                     paper.SetActive(true);
@@ -170,13 +175,26 @@ public class PlayerController : MonoBehaviour
                         clueText.text = clue8.Text;
                         clueImage.sprite = clue8.Image;
                     }
+
+                    sourceWalkForest.Pause();
+                    sourceWalkHouse.Pause();
+                    sourceWalkMines.Pause();
+                    StartCoroutine(WaitToPressE());
                 }
                 else
                 {
-                    paper.SetActive(false);
-                    clueText.text = string.Empty;
-                    cantMove = false;
-                    sourcePaper.Play();
+                    if (paper.gameObject.activeInHierarchy)
+                    {
+                        paper.SetActive(false);
+                        clueText.text = string.Empty;
+                        cantMove = false;
+                        sourcePaper.Play();
+                    }
+                    sourceWalkForest.UnPause();
+                    sourceWalkHouse.UnPause();
+                    sourceWalkMines.UnPause();
+                    StartCoroutine(WaitToPressE());
+                    rb.constraints = RigidbodyConstraints.FreezeRotation;
                 }
             }
         }
@@ -275,6 +293,14 @@ public class PlayerController : MonoBehaviour
             chaseScript.soundTriggered = true;
         }
 
+        if (other.gameObject.CompareTag("StickAudio"))
+        {
+            sourceStick.Play();
+            StartCoroutine(WaitAudioForest(sourceStick));
+            chaseScript.soundWalkPoint = other.transform.position;
+            chaseScript.soundTriggered = true;
+        }
+
         if (other.gameObject.CompareTag("Clue"))
         {
             Debug.Log("Entrou");
@@ -361,7 +387,7 @@ public class PlayerController : MonoBehaviour
             clue6Bool = false;
             clue7Bool = false;
             clue8Bool = false;
-        }          
+        }
     }
 
     public IEnumerator WaitAudioForest(AudioSource source)
@@ -400,5 +426,11 @@ public class PlayerController : MonoBehaviour
             song.volume += fadeSpeed;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    public IEnumerator WaitToPressE()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canPressE = true;
     }
 }
