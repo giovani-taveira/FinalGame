@@ -19,7 +19,7 @@ public class SpiderController : MonoBehaviour
         timeToStart += timeToStart * Time.deltaTime * 0.1f;
         Debug.Log("Time: " + timeToStart);
 
-        if (timeToStart >= 50f)
+        if (timeToStart >= 1f)
         {
             agent.SetDestination(playerTransform.position);
 
