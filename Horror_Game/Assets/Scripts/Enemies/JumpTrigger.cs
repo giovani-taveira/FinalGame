@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class JumpTrigger : MonoBehaviour
 {
-    public AudioSource Scream;
-    //public GameObject Player;
-    public GameObject JumpCam;
-    //public GameObject FlashImg;
+    [SerializeField] AudioSource Scream;
+    [SerializeField] GameObject JumpCam;
+    [SerializeField] GameObject GameOverInterface;
 
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("LookMonster"))
@@ -25,6 +24,10 @@ public class JumpTrigger : MonoBehaviour
     IEnumerator EndJump(){
         yield return new WaitForSeconds(5);
         JumpCam.SetActive(false);
+        Time.timeScale = 0;
+        GameOverInterface.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         //Player.SetActive(true);
         //FlashImg.SetActive(false);
     }
