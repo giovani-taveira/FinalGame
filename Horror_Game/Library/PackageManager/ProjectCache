@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638052832351576591
-    m_Hash: 4180132284
+      ticks: 638053798293267360
+    m_Hash: 2926559459
   m_LockFileStatus:
     m_FilePath: D:/Usuario/Desktop/UNITY FILES/TCC - Projeto Final/FinalGame/Horror_Game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638052832352127321
-    m_Hash: 2239659757
+      ticks: 638053798293437232
+    m_Hash: 1551642624
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
