@@ -82,6 +82,10 @@ public class PlayerController : MonoBehaviour
     private bool insideHouse;
     private bool canPressE;
 
+    [SerializeField] GameObject floorBlocker;
+    [SerializeField] SpiderController risadinhaScript;
+    [SerializeField] AudioSource risadinhaTheme;
+
     void Start()
     {
         stamina = 100;
@@ -164,6 +168,7 @@ public class PlayerController : MonoBehaviour
                     {
                         clueText.text = clue6.Text;
                         clueImage.sprite = clue6.Image;
+                        Destroy(floorBlocker);
                     }
                     else if (clue7Bool)
                     {
@@ -204,7 +209,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.A) ||
                 Input.GetKey(KeyCode.W) ||
                 Input.GetKey(KeyCode.S) ||
-                Input.GetKey(KeyCode.D))
+                Input.GetKey(KeyCode.D) ||
+                Input.GetKey(KeyCode.UpArrow) ||
+                Input.GetKey(KeyCode.DownArrow) ||
+                Input.GetKey(KeyCode.LeftArrow) ||
+                Input.GetKey(KeyCode.RightArrow))
             {
                 sourceWalkForest.enabled = true;
                 sourceWalkHouse.enabled = true;
@@ -299,6 +308,14 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(WaitAudioForest(sourceStick));
             chaseScript.soundWalkPoint = other.transform.position;
             chaseScript.soundTriggered = true;
+        }
+
+        if (other.gameObject.CompareTag("RisadinhaUnlocker"))
+        {
+            risadinhaScript.canReachPlayer = true;
+            risadinhaTheme.Play();
+            risadinhaTheme.volume = 0;
+            StartCoroutine(FadeInSlow(risadinhaTheme));
         }
 
         if (other.gameObject.CompareTag("Clue"))
@@ -424,6 +441,15 @@ public class PlayerController : MonoBehaviour
         while (song.volume < 0.3f)
         {
             song.volume += fadeSpeed;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public IEnumerator FadeInSlow(AudioSource song)
+    {
+        while (song.volume < 0.3f)
+        {
+            song.volume += 0.0004f;
             yield return new WaitForSeconds(0.1f);
         }
     }

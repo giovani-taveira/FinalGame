@@ -75,7 +75,8 @@ public class ChaseController : MonoBehaviour
         agent.SetDestination(soundWalkPoint);
 
         remainingDistance = agent.remainingDistance;
-        if (remainingDistance != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance == 0)
+        var distance = Vector3.Distance(this.transform.position, soundWalkPoint);
+        if (distance != Mathf.Infinity && distance < 1)
         {
             soundTriggered = false;
             SearchWalkPoint();
