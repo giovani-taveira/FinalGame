@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour
                     {
                         clueText.text = clue3.Text;
                         clueImage.sprite = clue3.Image;
+                        StartCoroutine(WaitLongerToPressE());
                     }
                     else if (clue4Bool)
                     {
@@ -188,7 +189,7 @@ public class PlayerController : MonoBehaviour
                     sourceWalkForest.Pause();
                     sourceWalkHouse.Pause();
                     sourceWalkMines.Pause();
-                    StartCoroutine(WaitToPressE());
+                    StartCoroutine(WaitLongerToPressE());
                 }
                 else
                 {
@@ -209,7 +210,7 @@ public class PlayerController : MonoBehaviour
                         sourceWalkForest.UnPause();
                         sourceWalkHouse.UnPause();
                         sourceWalkMines.UnPause();
-                        StartCoroutine(WaitToPressE());
+                        StartCoroutine(WaitLongerToPressE());
                         rb.constraints = RigidbodyConstraints.FreezeRotation;
                     }
                 }
@@ -476,5 +477,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(finalTheme.clip.length + 3f);
         LevelLoaderScript.Instance.LoadNextLevel(3); //Carrega os créditos.
+    }
+
+    public IEnumerator WaitLongerToPressE()
+    {
+        yield return new WaitForSeconds(4f);
+        canPressE = true;
     }
 }

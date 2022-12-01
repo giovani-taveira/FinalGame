@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class GeneralManager : MonoBehaviour
 {
-    [SerializeField] GameObject? pauseUI;
-    [SerializeField] GameObject? audio;
+    [SerializeField] GameObject pauseUI;
 
     float volumePrincipal;
     [SerializeField] Slider sliderMaster;
@@ -32,13 +31,11 @@ public class GeneralManager : MonoBehaviour
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                audio.SetActive(false);
                 pauseUI.SetActive(true); 
             } 
             else{
                 Time.timeScale = 1;
                 pauseUI.SetActive(false); 
-                audio.SetActive(true);
                 Cursor.visible = false;
             }            
         }
@@ -48,7 +45,6 @@ public class GeneralManager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseUI.SetActive(false); 
-        audio.SetActive(true);
         Cursor.visible = false;
     }
 

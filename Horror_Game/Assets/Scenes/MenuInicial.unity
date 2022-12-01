@@ -841,9 +841,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1034904803}
+    - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1034904803}
+    - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3924028158593492809, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3924028158841403853, guid: 111cec95642cd7d4daa132b84f552841, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
