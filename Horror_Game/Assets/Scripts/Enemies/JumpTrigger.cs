@@ -80,6 +80,14 @@ public class JumpTrigger : MonoBehaviour
             playerRb.constraints = RigidbodyConstraints.FreezePosition;
 
             StartCoroutine(EndJump());
+            PlayerPrefs.DeleteKey("clue1");
+            PlayerPrefs.DeleteKey("clue2");
+            PlayerPrefs.DeleteKey("clue3");
+            PlayerPrefs.DeleteKey("clue4");
+            PlayerPrefs.DeleteKey("clue5");
+            PlayerPrefs.DeleteKey("clue6");
+            PlayerPrefs.DeleteKey("clue7");
+            PlayerPrefs.DeleteKey("clue8");
         }
     }
 
