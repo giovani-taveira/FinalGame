@@ -53,6 +53,7 @@ public class GeneralManager : MonoBehaviour
         Time.timeScale = 1;
         pauseUI.SetActive(false); 
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
 
         foreach (var audio in audios)
             audio.mute = false;
