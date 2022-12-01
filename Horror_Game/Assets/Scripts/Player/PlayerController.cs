@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -129,42 +130,50 @@ public class PlayerController : MonoBehaviour
                     {
                         clueText.text = clue1.Text;
                         clueImage.sprite = clue1.Image;
+                        PlayerPrefs.SetInt("clue1", 1);
                     }
                     else if (clue2Bool)
                     {
                         clueText.text = clue2.Text;
                         clueImage.sprite = clue2.Image;
+                        PlayerPrefs.SetInt("clue2", 1);
                     }
                         
                     else if (clue3Bool)
                     {
                         clueText.text = clue3.Text;
                         clueImage.sprite = clue3.Image;
+                        PlayerPrefs.SetInt("clue3", 1);
                     }
                     else if (clue4Bool)
                     {
                         clueText.text = clue4.Text;
                         clueImage.sprite = clue4.Image;
+                        PlayerPrefs.SetInt("clue4", 1);
                     }
                     else if (clue5Bool)
                     {
                         clueText.text = clue5.Text;
                         clueImage.sprite = clue5.Image;
+                        PlayerPrefs.SetInt("clue5", 1);
                     }
                     else if (clue6Bool)
                     {
                         clueText.text = clue6.Text;
                         clueImage.sprite = clue6.Image;
+                        PlayerPrefs.SetInt("clue6", 1);
                     }
                     else if (clue7Bool)
                     {
                         clueText.text = clue7.Text;
                         clueImage.sprite = clue7.Image;
+                        PlayerPrefs.SetInt("clue7", 1);
                     }
                     else if (clue8Bool)
                     {
                         clueText.text = clue8.Text;
                         clueImage.sprite = clue8.Image;
+                        PlayerPrefs.SetInt("clue8", 1);
                     }
                 }
                 else
@@ -172,8 +181,8 @@ public class PlayerController : MonoBehaviour
                     paper.SetActive(false);
                     clueText.text = string.Empty;
                     cantMove = false;
-                    sourcePaper.Play();
-                }
+                    sourcePaper.Play(); 
+                }                
             }
         }
 
