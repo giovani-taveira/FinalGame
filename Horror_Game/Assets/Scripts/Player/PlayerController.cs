@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private bool clueTag;
     private bool firstTimeSoundGrowl;
-    private bool cantMove = false;
+    public bool cantMove = false;
     public bool isRunning = false;
     private bool startedRunning = false;
 
@@ -168,12 +168,12 @@ public class PlayerController : MonoBehaviour
                     {
                         clueText.text = clue5.Text;
                         clueImage.sprite = clue5.Image;
+                        Destroy(floorBlocker);
                     }
                     else if (clue6Bool)
                     {
                         clueText.text = clue6.Text;
                         clueImage.sprite = clue6.Image;
-                        Destroy(floorBlocker);
                     }
                     else if (clue7Bool)
                     {

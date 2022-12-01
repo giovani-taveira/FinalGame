@@ -563,8 +563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 332.93408, y: 466}
-  m_SizeDelta: {x: -509.81097, y: 3436.7422}
+  m_AnchoredPosition: {x: 332.93408, y: 281.68}
+  m_SizeDelta: {x: -509.811, y: 3805.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1342457469
 MonoBehaviour:
@@ -605,7 +605,7 @@ MonoBehaviour:
     Belanciere Duarte\n\n\n\n\nVitor Figueira Kasmarek\n\n\n\n\nJos\xE9 Paulo Dassie
     Felippi\nYan Spetic Barbosa\n\n\n\n\nLu\xEDs Filipe Tin\xF3s\n\n\n\n\nGabriel
     Carvalho de Oliveira\nLara Kelm Magrini\n\n\n\n\nGiovani de Alvarenga Taveira\nLu\xEDs
-    Filipe Tin\xF3s\nMilton Maia Soares"
+    Filipe Tin\xF3s\nMilton Maia Soares\n\n\n\nProfa. Dra. Carolina Vaitiekunas Pizarro"
 --- !u!222 &1342457470
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -844,8 +844,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -438.0001, y: 465}
-  m_SizeDelta: {x: -843.67914, y: 3436.7422}
+  m_AnchoredPosition: {x: -438.00006, y: 281.18164}
+  m_SizeDelta: {x: -843.6791, y: 3804.379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1982845962
 MonoBehaviour:
@@ -880,7 +880,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Orientador\n\n\n\n\nVoz do Detetive\n\n\n\n\nVoz da Mulher\n\n\n\n\nGDD/Roteiro\n\n\n\n\n\n\nModelagem\n\n\n\n\n\n\n\nAnima\xE7\xE3o\n\n\n\n\nCen\xE1rio\n\n\n\n\nInterface\n\n\n\n\n\n\xC1udio\n\n\n\n\nArte\n\n\n\n\n\nPrograma\xE7\xE3o\n\n\n\n\n"
+  m_Text: "Orientador\n\n\n\n\nVoz do Detetive\n\n\n\n\nVoz da Mulher\n\n\n\n\nGDD/Roteiro\n\n\n\n\n\n\nModelagem\n\n\n\n\n\n\n\nAnima\xE7\xE3o\n\n\n\n\nCen\xE1rio\n\n\n\n\nInterface\n\n\n\n\n\n\xC1udio\n\n\n\n\nArte\n\n\n\n\n\nPrograma\xE7\xE3o\n\n\n\n\n\nRevisor
+    ortogr\xE1fico\n\n"
 --- !u!222 &1982845963
 CanvasRenderer:
   m_ObjectHideFlags: 0

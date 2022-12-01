@@ -9,13 +9,13 @@ public class GeneralManager : MonoBehaviour
 
     float volumePrincipal;
     [SerializeField] Slider sliderMaster;
-    [SerializeField] AudioSource audioManager;
+    [SerializeField] AudioSource[] audios;
 
     // Start is called before the first frame update
     void Start()
     {
-        sliderMaster.value = 0.5f;
-        audioManager.volume = sliderMaster.value;
+        //sliderMaster.value = 0.5f;
+        //audioManager.volume = sliderMaster.value;
     }
 
     // Update is called once per frame
@@ -25,15 +25,22 @@ public class GeneralManager : MonoBehaviour
     }
 
     void ControlPauseMenu(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape)) {
             if(!pauseUI.active)
             {
+                foreach (var audio in audios)
+                    audio.mute = true;
+
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 pauseUI.SetActive(true); 
             } 
-            else{
+            else {
+
+                foreach (var audio in audios)
+                    audio.mute = false;
+
                 Time.timeScale = 1;
                 pauseUI.SetActive(false); 
                 Cursor.visible = false;
@@ -46,11 +53,14 @@ public class GeneralManager : MonoBehaviour
         Time.timeScale = 1;
         pauseUI.SetActive(false); 
         Cursor.visible = false;
+
+        foreach (var audio in audios)
+            audio.mute = false;
     }
 
-    public void VolumeControl(float volume)
-    {
-        volumePrincipal = volume;
-        audioManager.volume = sliderMaster.value;
-    }
+    //public void VolumeControl(float volume)
+    //{
+    //    volumePrincipal = volume;
+    //    audioManager.volume = sliderMaster.value;
+    //}
 }
