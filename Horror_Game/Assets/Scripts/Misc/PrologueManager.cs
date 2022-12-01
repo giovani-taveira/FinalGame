@@ -125,6 +125,6 @@ public class PrologueManager : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         yield return new WaitForSeconds(2f);
-        LevelLoaderScript.Instance.LoadNextLevel(1); //Depois tem que mudar quando o resto das cenas forem adicionadas.
+        LevelLoaderScript.Instance.LoadNextLevel(2); //Depois tem que mudar quando o resto das cenas forem adicionadas.
     }
 }

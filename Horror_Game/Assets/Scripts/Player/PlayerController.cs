@@ -86,8 +86,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpiderController risadinhaScript;
     [SerializeField] AudioSource risadinhaTheme;
 
+    [SerializeField] GameObject blackImageFinal;
+    [SerializeField] AudioSource finalTheme;
+
     void Start()
     {
+        blackImageFinal.SetActive(false);
         stamina = 100;
         rb = GetComponent<Rigidbody>();
         clueTag = false;
@@ -188,18 +192,26 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (paper.gameObject.activeInHierarchy)
+                    if (clue3Bool)
+                    {
+                        Destroy(risadinhaTheme);
+                        blackImageFinal.SetActive(true);
+                        finalTheme.Play();
+                        StartCoroutine(WaitToCredits(finalTheme));
+                    }
+                    else if (paper.gameObject.activeInHierarchy)
                     {
                         paper.SetActive(false);
                         clueText.text = string.Empty;
                         cantMove = false;
                         sourcePaper.Play();
+
+                        sourceWalkForest.UnPause();
+                        sourceWalkHouse.UnPause();
+                        sourceWalkMines.UnPause();
+                        StartCoroutine(WaitToPressE());
+                        rb.constraints = RigidbodyConstraints.FreezeRotation;
                     }
-                    sourceWalkForest.UnPause();
-                    sourceWalkHouse.UnPause();
-                    sourceWalkMines.UnPause();
-                    StartCoroutine(WaitToPressE());
-                    rb.constraints = RigidbodyConstraints.FreezeRotation;
                 }
             }
         }
@@ -310,7 +322,7 @@ public class PlayerController : MonoBehaviour
             chaseScript.soundTriggered = true;
         }
 
-        if (other.gameObject.CompareTag("RisadinhaUnlocker"))
+        if (other.gameObject.CompareTag("RisadinhaUnlocker") && !risadinhaScript.canReachPlayer)
         {
             risadinhaScript.canReachPlayer = true;
             risadinhaTheme.Play();
@@ -449,7 +461,7 @@ public class PlayerController : MonoBehaviour
     {
         while (song.volume < 0.3f)
         {
-            song.volume += 0.0004f;
+            song.volume += 0.04f;
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -458,5 +470,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         canPressE = true;
+    }
+
+    public IEnumerator WaitToCredits(AudioSource finalTheme)
+    {
+        yield return new WaitForSeconds(finalTheme.clip.length + 3f);
+        LevelLoaderScript.Instance.LoadNextLevel(3); //Carrega os créditos.
     }
 }

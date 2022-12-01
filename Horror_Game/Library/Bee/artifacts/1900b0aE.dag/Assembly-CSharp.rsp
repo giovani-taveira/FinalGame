@@ -416,6 +416,7 @@
 "Assets/Scripts/Interface/CreditsScene.cs"
 "Assets/Scripts/Interface/GameOver.cs"
 "Assets/Scripts/Interface/OpçõesControlador.cs"
+"Assets/Scripts/Interface/StartGame.cs"
 "Assets/Scripts/Misc/Clues.cs"
 "Assets/Scripts/Misc/FlashLigth.cs"
 "Assets/Scripts/Misc/LevelLoaderScript.cs"

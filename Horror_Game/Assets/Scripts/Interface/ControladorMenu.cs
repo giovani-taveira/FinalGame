@@ -60,4 +60,9 @@ public class ControladorMenu : MonoBehaviour
         SceneManager.LoadScene(cena);
         Time.timeScale = 1;
     }
+
+    public void StartGame()
+    {
+        LevelLoaderScript.Instance.LoadNextLevel(1); //Carrega o prólogo
+    }
 }
